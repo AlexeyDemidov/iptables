@@ -18,6 +18,13 @@ next table and so on
 :<%= chain %> <%= value %>
 <% end -%>
 <% end -%>
+<%# Flush the chains in the file %>
+<% unless data['chains'].nil? || data['chains'].empty? -%>
+<% data['chains'].each do |chain, value| -%>
+<% next if chain == :FORWARD -%>
+-F <%= chain %>
+<% end -%>
+<% end -%>
 <%# once all chains are down we put the rules down%>
 <% unless data['rules'].nil? || data['rules'].empty? -%>
 <% data['rules'].each do |rule| -%>

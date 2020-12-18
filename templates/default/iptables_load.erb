@@ -1,3 +1,3 @@
 #!/bin/sh
-<%= @iptables_restore_binary %> < <%= @iptables_save_file %>
+<%= @iptables_restore_binary %> -n < <%= @iptables_save_file %>
 exit 0
